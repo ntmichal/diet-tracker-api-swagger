@@ -6,6 +6,8 @@ info:
 host: "localhost"
 basePath: "/api"
 tags:
+- name: "User"
+  description: "/api/user"
 - name: "Product"
   description: "Product endpoints"
 - name: "Meal"
@@ -17,7 +19,6 @@ paths:
       - "Product"
       summary: "Add a new product to database"
       description: ""
-      operationId: "addPet"
       consumes:
       - "application/json"
       produces:
