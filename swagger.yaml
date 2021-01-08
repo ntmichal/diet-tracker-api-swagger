@@ -72,6 +72,33 @@ paths:
           description: Product not found
       security:
       - Bearer: []
+      
+  /api/meal/{userId}/list:
+    get:
+      tags:
+      - Meal
+      summary: Get meals by date parameter
+      parameters:
+      - name: date
+        in: query
+        description: Meal with date format yyyy-mm-dd
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        description: The user id
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Ok
+        404:
+          description: Not found
+      security:
+      - Bearer: []   
+      
 components:
   schemas:
     Product:
@@ -99,6 +126,18 @@ components:
         volume:
           type: number
           format: float
+    MealsList:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          name:
+            type: string
+          link:
+            type: string
   securitySchemes:
     Bearer:
       type: http
